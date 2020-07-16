@@ -111,25 +111,22 @@ export default {
       songRef.off('child_added')
 
       songRef.on('child_added', (spollSnapshot) => {
-        // const spollId = spollSnapshot.key;
         const song = spollSnapshot.val()
-        // console.log('test');
         song.key = spollSnapshot.key
-        // console.log(song);
         this.songs.push(song)
       })
-      songRef.on('child_changed', (spollSnapshot) => { // 変更を監視
-        const song = spollSnapshot.val() // 変更された���ブジェクト
+      songRef.on('child_changed', (spollSnapshot) => { 
+        const song = spollSnapshot.val() 
 
-        song.key = spollSnapshot.key // 変更されたkey
+        song.key = spollSnapshot.key 
 
         console.log(song)
         const vm = this // javascriptはthisが文脈によって変わるので確実にvueオブジェクトを指すために代入しておく
 
-        vm.songs.forEach((records, index) => { // vueのレンダリング実行のためには、indexが必要だったのでこの形でループ
+        vm.songs.forEach((records, index) => { 
           let newSong = vm.songs[index]
-          if (records.key === song.key) { // 現在のデータのkeyと変更されたkeyを比較
-            newSong = song // vote_countが更新されたデータ
+          if (records.key === song.key) { 
+            newSong = song 
           }
 
           // vueの$setで変更されたので再描画必要なことをVueに伝える
@@ -138,8 +135,6 @@ export default {
       })
     },
     getRelativeVote (song) {
-      // const voteMax = function (a, b) { return (a.vote_count > b.vote_count) ? a : b; };
-      // let vMax = this.songs.reduce(voteMax).vote_count;
       let vMax = 0
       for (let record of this.songs) {
         vMax = Math.max(record.vote_count, vMax)
