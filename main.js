@@ -6,7 +6,7 @@ import router from './router'
 import firebase from 'firebase'
 
 const config = {
-  apiKey: 'XXX'
+  apiKey: 'XXX',
   authDomain: 'XXX',
   databaseURL: 'XXX',
   projectId: 'XXX',
