@@ -121,7 +121,7 @@ export default {
         song.key = spollSnapshot.key 
 
         console.log(song)
-        const vm = this // javascriptはthisが文脈によって変わるので確実にvueオブジェクトを指すために代入しておく
+        const vm = this 
 
         vm.songs.forEach((records, index) => { 
           let newSong = vm.songs[index]
@@ -129,7 +129,6 @@ export default {
             newSong = song 
           }
 
-          // vueの$setで変更されたので再描画必要なことをVueに伝える
           vm.$set(vm.songs, index, newSong)
         })
       })
