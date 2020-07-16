@@ -6,12 +6,12 @@ import router from './router'
 import firebase from 'firebase'
 
 const config = {
-  apiKey: 'AIzaSyDPzR8gpncWtGk-VieDdhXoBUnNxsKPMK0',
-  authDomain: 'fan-vote2020.firebaseapp.com',
-  databaseURL: 'https://fan-vote2020.firebaseio.com',
-  projectId: 'fan-vote2020',
-  storageBucket: 'fan-vote2020.appspot.com',
-  messagingSenderId: '315334088574'
+  apiKey: 'XXX'
+  authDomain: 'XXX',
+  databaseURL: 'XXX',
+  projectId: 'XXX',
+  storageBucket: 'XXX',
+  messagingSenderId: 'XXX'
 }
 
 firebase.initializeApp(config)
