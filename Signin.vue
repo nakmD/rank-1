@@ -70,7 +70,6 @@ export default {
 .al {
   background-size: cover;
   background-image: url(../../image/concert-768722_1280.jpg);
-  background-color: rgba(255,255,255,0.2);
   background-blend-mode: lighten;
 }
 
@@ -172,5 +171,74 @@ input {
 
 .butt:hover {
   background-image: linear-gradient(45deg, #B03232 50%, #b0c9ff 100%);
+}
+
+@media screen and (max-width: 880px) {
+  .dib {
+    margin: 0 157px;
+  }
+
+  .fll {
+    position: relative;
+    display: flex;
+    width: 563px;
+  }
+
+  .looks {
+    display: inline-block;
+    height: 45vh;
+    position: absolute;
+    margin: 0 auto;
+  }
+
+  .signin {
+    height: 50vh;
+    position: absolute;
+    top: 50%;
+    right: -3%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .dib {
+    margin: 0;
+    width: 100%;
+  }
+
+  .fll {
+    width: 100%;
+    position: relative;
+  }
+
+  .looks {
+    height: 160px;
+    position: absolute;
+    top: 7%;
+    left: 22%;
+  }
+
+  .pa {
+    font-size: 2rem;
+  }
+  .pb {
+    font-size: 2rem;
+  }
+
+  .signin {
+    width: 100%;
+    height: 160px;
+    font-size: 1rem;
+    position: absolute;
+    top: 37%;
+    left: 0%;
+  }
+  .pc {
+    font-size: 2rem;
+  }
+  .pe {
+    color: white;
+    font-size: 1rem;
+  }
 }
 </style>
