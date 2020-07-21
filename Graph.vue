@@ -185,6 +185,18 @@ export default {
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons");
+.g {
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  max-width: 1440px;
+  background-image: linear-gradient(135deg, rgb(255, 179, 38), rgb(253, 81, 81));
+}
+
+.graph {
+  height: 90%;
+  width: 82%;
+}
 
 .tit {
   font-size: 2.5rem;
@@ -194,17 +206,6 @@ export default {
 .table {
   font-size: 2rem;
   font-weight: normal;
-}
-
-.graph {
-  height: 90%;
-  width: 83%;
-}
-
-.g {
-  margin: 5px auto;
-  display: flex;
-  max-width: 1440px;
 }
 
 .songs-leave-active,
@@ -260,8 +261,8 @@ input {
 }
 
 .message-body {
-  width: 17%;
-  height: 80vh;
+  width: 18%;
+    height: 98%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -281,51 +282,99 @@ input {
   color: rgb(0, 195, 255);
   font-weight: bolder;
 }
-.message-body input {
-  width: 100%;
-  border-radius: 4px;
-  border: 1px solid rgb(156, 156, 156);
-  height: 5vh;
-  padding-left: 2px;
-  padding-right: 2px;
-}
 .card {
   width: 100%;
-  height: 75vh;
-  margin: auto;
-  border: none;
+  height: 85%;
+  background-image: linear-gradient(135deg, rgb(255, 179, 38), rgb(253, 81, 81));
 }
 .card-body {
-  max-height: 70vh;
+  max-height: 83vh;
   overflow-x: scroll;
 }
 
-.btn {
-  margin-top: 1px;
-  margin-left: 69%;
-}
 .dod {
-  padding: 1.25rem;
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.message-body input {
+  width: 76%;
+  border-radius: 4px;
+  border: 1px solid rgb(156, 156, 156);
+  height: 3vh;
+}
+.btn {
+  margin-top: 14px;
+  margin-left: 9px;
+  padding: 0;
+  width: 15%;
+  height: 55%;
+  border: 1px solid white;
+  display: inline-block;
 }
 
 @media screen and (max-width: 1050px) {
   .g {
     display: block;
+    height: 100vh;
   }
   .graph {
     width: 100%;
+    height: 50%;
   }
   .message-body {
     width: 50%;
     margin-left: 0%;
+    height: 47%;
   }
-  .dod {
+  .card {
+    height: 83%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 
+  .nel {
+    height: 9%;
+    width: 9%;
+    font-size: 0.2rem;
+  }
+
+  .dod {
+    height: 10%;
+    padding: 0 0 0 18px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .btn {
+    margin-top: 14px;
+    margin-left: 9px;
+    padding: 0;
+    width: 10%;
+    height: 50%;
+    border: 1px solid white;
+    display: inline-block;
+  }
+  .message-body input {
+    width: 82%;
+    border-radius: 4px;
+    border: 1px solid rgb(156, 156, 156);
+    height: 3vh;
   }
 }
-
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 650px) {
+  .nel {
+    width: 13%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .btn {
+    width: 11%;
+  }
+  .nel {
+    width: 13%;
+  }
+}
+@media screen and (max-width: 450px) {
   .g {
     max-height: 812px;
   }
@@ -340,12 +389,14 @@ input {
     font-size: 1.4rem;
   }
   .nel {
+    margin-right: 9px;
     margin-bottom: 20px;
     font-size: 0.4rem;
+    width: 17%;
   }
   .message-body {
     width: 100%;
-    height: 504px;
+    height: 448px;
     visibility: scroll;
   }
   .card {
@@ -358,20 +409,24 @@ input {
   }
   .message-body input {
     height: 20px;
-    width: 300px;
+    width: 294px;
+    margin-left: 18px;
   }
   .border {
     height: 27px;
   }
   .btn {
-    height: 20px;
-    margin: 0 auto 7px;
+    width: 50px;
+    padding-left: 0px;
+    padding-top: 6px;
   }
   .message {
     font-size: 11px;
   }
   .dod {
-    height: 100px;
+    display: inline-flex;
+    height: 50px;
+    padding: 10px 0 0 0;
   }
 }
 </style>
