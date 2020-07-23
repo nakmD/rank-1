@@ -39,7 +39,6 @@
               </tr>
           </transition-group>
         </table>
-        <!-- <button class="nel" @click="signOut">ログアウト</button> -->
       </div>
       <!-- Chat section -->
       <div class="message-body mt-3">
@@ -362,24 +361,6 @@ tbody {
   width: 20%;
 }
 
-/* .nel {
-  display: inline-block;
-  padding: 0.5em 1em;
-  text-decoration: none;
-  border-radius: 3px;
-  font-weight: bold;
-  color: #FFF;
-  background-image: linear-gradient(45deg, #B03232 0%, #b0c9ff 100%);
-  transition: .4s;
-  font-size: 1.2rem;
-  float: right;
-  position: right;
-} */
-
-/* .nel:hover {
-  background-image: linear-gradient(45deg, #B03232 50%, #b0c9ff 100%);
-} */
-
 h3 {
   font-size: 30px;
   text-align: center;
@@ -466,12 +447,6 @@ input {
     margin-bottom: 0;
   }
 
-  /* .nel {
-    height: 9%;
-    width: 9%;
-    font-size: 0.2rem;
-  } */
-
   .dod {
     height: 10%;
     padding: 0 0 0 18px;
@@ -494,18 +469,11 @@ input {
     height: 3vh;
   }
 }
-/* @media screen and (max-width: 650px) {
-  .nel {
-    width: 13%;
-  }
-} */
+
 @media screen and (max-width: 500px) {
   .btn {
     width: 11%;
   }
-  /* .nel {
-    width: 13%;
-  } */
 }
 @media screen and (max-width: 450px) {
   .g {
@@ -556,12 +524,7 @@ input {
   .table {
     font-size: 1.4rem;
   }
-  /* .nel {
-    margin-right: 9px;
-    margin-bottom: 20px;
-    font-size: 0.4rem;
-    width: 17%;
-  } */
+
   .message-body {
     width: 100%;
     height: 448px;
