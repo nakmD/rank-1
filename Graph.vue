@@ -2,7 +2,21 @@
   <div>
     <div class="g">
       <div class="graph tit">
-        <p class="t">Fan Vote</p>
+        <div class="header-logo-menu">
+        <div class="logo-area t">Fan Vote</div>
+        <div id="nav-drawer">
+          <input id="nav-input" type="checkbox" class="nav-unshown">
+          <label id="nav-open" for="nav-input"><span></span></label>
+          <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+          <div id="nav-content">
+            <ul>
+              <li class="so" @click="signOut">Sign Out</li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+        </div>
         <table class="table">
           <transition-group name="songs" tag="tbody">
               <tr scope="row" class="col-4"
@@ -25,14 +39,14 @@
               </tr>
           </transition-group>
         </table>
-        <button class="nel" @click="signOut">Sign out</button>
+        <!-- <button class="nel" @click="signOut">ログアウト</button> -->
       </div>
       <!-- Chat section -->
       <div class="message-body mt-3">
         <div class="card">
           <div class="card-body">
             <div
-              class="border pl-2 pt-1 ml-2 message-text mb-2"
+              class="pl-2 pt-1 ml-2 message-text mb-2"
               v-for="(message, index) in messages"
               :key="index"
             >
@@ -111,29 +125,35 @@ export default {
       songRef.off('child_added')
 
       songRef.on('child_added', (spollSnapshot) => {
+        // const spollId = spollSnapshot.key;
         const song = spollSnapshot.val()
+        // console.log('test');
         song.key = spollSnapshot.key
+        // console.log(song);
         this.songs.push(song)
       })
-      songRef.on('child_changed', (spollSnapshot) => { 
-        const song = spollSnapshot.val() 
+      songRef.on('child_changed', (spollSnapshot) => { // 変更を監視
+        const song = spollSnapshot.val() // 変更された���ブジェクト
 
-        song.key = spollSnapshot.key 
+        song.key = spollSnapshot.key // 変更されたkey
 
         console.log(song)
-        const vm = this 
+        const vm = this // javascriptはthisが文脈によって変わるので確実にvueオブジェクトを指すために代入しておく
 
-        vm.songs.forEach((records, index) => { 
+        vm.songs.forEach((records, index) => { // vueのレンダリング実行のためには、indexが必要だったのでこの形でループ
           let newSong = vm.songs[index]
-          if (records.key === song.key) { 
-            newSong = song 
+          if (records.key === song.key) { // 現在のデータのkeyと変更されたkeyを比較
+            newSong = song // vote_countが更新されたデータ
           }
 
+          // vueの$setで変更されたので再描画必要なことをVueに伝える
           vm.$set(vm.songs, index, newSong)
         })
       })
     },
     getRelativeVote (song) {
+      // const voteMax = function (a, b) { return (a.vote_count > b.vote_count) ? a : b; };
+      // let vMax = this.songs.reduce(voteMax).vote_count;
       let vMax = 0
       for (let record of this.songs) {
         vMax = Math.max(record.vote_count, vMax)
@@ -203,6 +223,119 @@ export default {
   font-weight: bold;
 }
 
+#nav-drawer {
+  position: relative;
+}
+
+/*チェックボックス等は非表示に*/
+.nav-unshown {
+  display:none;
+}
+
+/*アイコンのスペース*/
+#nav-open {
+  display: inline-block;
+  width: 30px;
+  height: 22px;
+  vertical-align: middle;
+}
+
+/*ハンバーガーの形をCSSで表現*/
+#nav-open span, #nav-open span:before, #nav-open span:after {
+  position: absolute;
+  height: 3px;/*線の太さ*/
+  width: 25px;/*長さ*/
+  border-radius: 3px;
+  background: #555;
+  display: block;
+  content: '';
+  cursor: pointer;
+}
+#nav-open span:before {
+  bottom: -10px;
+}
+#nav-open span:after {
+  bottom: -20px;
+}
+
+/*閉じる用の薄黒箇所*/
+#nav-close {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  transition: .3s ease-in-out;
+}
+
+/*メニューの中身*/
+#nav-content {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  width: 30%;
+  max-width: 330px;/*最大幅（お好みで調整を）*/
+  height: 70%;
+  background: #fff;
+  transition: .3s ease-in-out;
+  -webkit-transform: translateX(105%);
+  transform: translateX(105%);
+  background-image: linear-gradient(135deg, rgb(242, 243, 253), rgb(107, 106, 136))
+}
+
+#nav-content ul {
+  margin: 0;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid gray;
+}
+
+#nav-content ul li {
+  text-align: center;
+  list-style: none;
+  font-size: 2rem;
+  font-family: cursive;
+}
+
+.so {
+  cursor: pointer;
+}
+
+/*チェックがついたら表示させる*/
+#nav-input:checked ~ #nav-close {
+  display: block;
+  opacity: .5;
+}
+
+#nav-input:checked ~ #nav-content {
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%);
+  box-shadow: 6px 0 25px rgba(0,0,0,.15);
+}
+
+.header-logo-menu{
+ display: flex;
+ display: -moz-flex;
+ display: -o-flex;
+ display: -webkit-flex;
+ display: -ms-flex;
+ flex-direction: row;
+ -moz-flex-direction: row;
+ -o-flex-direction: row;
+ -webkit-flex-direction: row;
+ -ms-flex-direction: row;
+}
+
+/*ロゴやサイトタイトルをセンタリング*/
+.logo-area{text-align:center;margin:auto;}
+
 .table {
   font-size: 2rem;
   font-weight: normal;
@@ -229,7 +362,7 @@ tbody {
   width: 20%;
 }
 
-.nel {
+/* .nel {
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
@@ -241,11 +374,11 @@ tbody {
   font-size: 1.2rem;
   float: right;
   position: right;
-}
+} */
 
-.nel:hover {
+/* .nel:hover {
   background-image: linear-gradient(45deg, #B03232 50%, #b0c9ff 100%);
-}
+} */
 
 h3 {
   font-size: 30px;
@@ -333,11 +466,11 @@ input {
     margin-bottom: 0;
   }
 
-  .nel {
+  /* .nel {
     height: 9%;
     width: 9%;
     font-size: 0.2rem;
-  }
+  } */
 
   .dod {
     height: 10%;
@@ -361,39 +494,74 @@ input {
     height: 3vh;
   }
 }
-@media screen and (max-width: 650px) {
+/* @media screen and (max-width: 650px) {
   .nel {
     width: 13%;
   }
-}
+} */
 @media screen and (max-width: 500px) {
   .btn {
     width: 11%;
   }
-  .nel {
+  /* .nel {
     width: 13%;
-  }
+  } */
 }
 @media screen and (max-width: 450px) {
   .g {
     max-height: 812px;
   }
   .t {
-    font-size: 1.2rem;
-    margin-bottom: 0;
+    font-size: 1.5rem;
+    padding-top: 2px;
   }
+
+  .header-logo-menu {
+    height: 8%;
+  }
+
+  /*ハンバーガーの形をCSSで表現*/
+  #nav-open span, #nav-open span:before, #nav-open span:after {
+    position: absolute;
+    bottom: 17px;
+    height: 2px;/*線の太さ*/
+    width: 18px;/*長さ*/
+    border-radius: 3px;
+    background: #555;
+    display: block;
+    content: '';
+    cursor: pointer;
+  }
+  #nav-open span:before {
+    bottom: -6px;
+  }
+  #nav-open span:after {
+    bottom: -12px;
+  }
+
+  #nav-content {
+    z-index: 100;
+    width: 50%;
+    height: 55%;
+  }
+
   .graph {
     height: 308px;
   }
+
+  #nav-drawer {
+    left: 2%;
+  }
+
   .table {
     font-size: 1.4rem;
   }
-  .nel {
+  /* .nel {
     margin-right: 9px;
     margin-bottom: 20px;
     font-size: 0.4rem;
     width: 17%;
-  }
+  } */
   .message-body {
     width: 100%;
     height: 448px;
@@ -409,7 +577,7 @@ input {
   }
   .message-body input {
     height: 20px;
-    width: 294px;
+    width: 272px;
     margin-left: 18px;
   }
   .border {
@@ -418,7 +586,9 @@ input {
   .btn {
     width: 50px;
     padding-left: 0px;
-    padding-top: 6px;
+    padding-top: 1px;
+    margin-top: 11px;
+    background: rgb(199, 206, 245);
   }
   .message {
     font-size: 11px;
