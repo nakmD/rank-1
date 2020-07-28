@@ -477,6 +477,7 @@ input {
 }
 @media screen and (max-width: 450px) {
   .g {
+    overflow: hidden;
     max-height: 812px;
   }
   .t {
