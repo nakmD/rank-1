@@ -10,9 +10,13 @@
           <label class="nav-unshown" id="nav-close" for="nav-input"></label>
           <div id="nav-content">
             <ul>
+              <li @click="">完全感覚Dreamer</li>
+              <li @click="">前前前世</li>
+              <li @click="">Pretender</li>
+              <li @click="">紅蓮華</li>
+              <li @click="">白日</li>
+              <li @click="">パプリカ</li>
               <li class="so" @click="signOut">Sign Out</li>
-              <li></li>
-              <li></li>
             </ul>
           </div>
         </div>
