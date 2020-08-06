@@ -70,10 +70,12 @@
 <script>
 import firebase from 'firebase'
 import Eps from './Eps.vue'
+import Kanzen from './Kanzen.vue'
 
 export default {
   name: 'Graph',
   components: {
+    Kanzen,
     Eps
   },
   data () {
@@ -110,6 +112,10 @@ export default {
       firebase.auth().signOut().then(() => {
         this.$router.push('/signin')
       })
+    },
+    Kanzen: function () {
+      this.$router.push('/Kanzen')
+      }
     },
     vote: function (song) {
       firebase
@@ -380,7 +386,7 @@ input {
 
 .message-body {
   width: 18%;
-    height: 98%;
+  height: 98%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -516,6 +522,15 @@ input {
     z-index: 100;
     width: 50%;
     height: 55%;
+  }
+  
+  #nav-content ul {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  #nav-content ul li {
+    font-size: 1.7rem;
   }
 
   .graph {
