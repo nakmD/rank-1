@@ -6,6 +6,7 @@ import Signin from '@/components/Signin'
 import Graph from '@/components/Graph'
 import firebase from 'firebase'
 import Eps from '@/components/Eps'
+import Kanzen from '@/components/Kanzen'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ let router = new Router({
       path: '/Eps',
       name: 'Eps',
       component: Eps
+    },
+    {
+      path: '/Kanzen',
+      name: 'Kanzen',
+      component: Kanzen
     }
   ]
 })
