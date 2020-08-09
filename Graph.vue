@@ -115,7 +115,6 @@ export default {
     },
     Kanzen: function () {
       this.$router.push('/Kanzen')
-      }
     },
     vote: function (song) {
       firebase
