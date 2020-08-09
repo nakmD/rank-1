@@ -3,24 +3,24 @@
     <div class="g">
       <div class="graph tit">
         <div class="header-logo-menu">
-        <div class="logo-area t">Fan Vote</div>
-        <div id="nav-drawer">
-          <input id="nav-input" type="checkbox" class="nav-unshown">
-          <label id="nav-open" for="nav-input"><span></span></label>
-          <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-          <div id="nav-content">
-            <ul>
-              <li @click="">完全感覚Dreamer</li>
-              <li @click="">前前前世</li>
-              <li @click="">Pretender</li>
-              <li @click="">紅蓮華</li>
-              <li @click="">白日</li>
-              <li @click="">パプリカ</li>
-              <li class="so" @click="signOut">Sign Out</li>
-            </ul>
-          </div>
-        </div>
-        </div>
+          <div class="logo-area t">Fan Vote</div>
+          <div id="nav-drawer">
+            <input id="nav-input" type="checkbox" class="nav-unshown">
+            <label id="nav-open" for="nav-input"><span></span></label>
+            <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+            <div id="nav-content">
+              <ul>
+                <li @click="">完全感覚Dreamer</li>
+                <li @click="">前前前世</li>
+                <li @click="">Pretender</li>
+                <li @click="">紅蓮華</li>
+                <li @click="">白日</li>
+                <li @click="">パプリカ</li>
+                <li class="so" @click="signOut">Sign Out</li>
+              </ul>
+            </div> <!-- id="nav-content" -->
+          </div> <!-- id="nav-drawer" -->
+        </div> <!-- class="header-logo-menu" -->
         <table class="table">
           <transition-group name="songs" tag="tbody">
               <tr scope="row" class="col-4"
@@ -43,7 +43,7 @@
               </tr>
           </transition-group>
         </table>
-      </div>
+      </div> <!-- class="graph tit" -->
       <!-- Chat section -->
       <div class="message-body mt-3">
         <div class="card">
@@ -62,8 +62,8 @@
           <input v-model="showMessage" type="text" placeholder="コメントしよう！" class="mt-3 mr-2 pl-2 pr-2" />
           <button class="btn" @click="sendMessage">送信</button>
         </div>
-      </div>
-    </div>
+      </div> <!-- message-body -->
+    </div>  <!-- class="g" -->
   </div>
 </template>
 
