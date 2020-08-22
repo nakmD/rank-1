@@ -216,14 +216,14 @@ export default {
 .g {
   height: 100vh;
   margin: 0 auto;
-  display: flex;
+  display: block;
   max-width: 1440px;
   background-image: linear-gradient(135deg, rgb(255, 179, 38), rgb(253, 81, 81));
 }
 
 .graph {
-  height: 90%;
-  width: 82%;
+  height: 57%;
+  width: 100%;
 }
 
 .tit {
@@ -294,7 +294,7 @@ export default {
   transition: .3s ease-in-out;
   -webkit-transform: translateX(105%);
   transform: translateX(105%);
-  background-image: linear-gradient(135deg, rgb(242, 243, 253), rgb(107, 106, 136))
+  background-image: linear-gradient(135deg, rgb(242, 243, 253), rgb(253, 193, 158))
 }
 
 #nav-content ul {
@@ -306,6 +306,7 @@ export default {
 }
 
 #nav-content ul li {
+  cursor: pointer;
   text-align: center;
   list-style: none;
   font-size: 2rem;
@@ -384,13 +385,9 @@ input {
 }
 
 .message-body {
-  width: 18%;
-  height: 98%;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
+  width: 100%;
+  margin-left: 0%;
+  height: 43%;
 }
 
 .message-text {
@@ -446,7 +443,7 @@ input {
     height: 50%;
   }
   .message-body {
-    width: 50%;
+    width: 100%;
     margin-left: 0%;
     height: 47%;
   }
