@@ -288,8 +288,8 @@ export default {
   right: 0;
   z-index: 100;
   width: 30%;
-  max-width: 330px;/*最大幅（お好みで調整を）*/
-  height: 70%;
+  max-width: 330px;/*最大幅*/
+  height: 35%;
   background: #fff;
   transition: .3s ease-in-out;
   -webkit-transform: translateX(105%);
@@ -483,10 +483,11 @@ input {
 }
 @media screen and (max-width: 450px) {
   .g {
-    overflow: hidden;
     max-height: 812px;
+    overflow: hidden;
   }
-  .t {
+  .t /* Fan Voteタイトルのclass */
+  {
     font-size: 1.5rem;
     padding-top: 2px;
   }
@@ -519,7 +520,7 @@ input {
     width: 50%;
     height: 55%;
   }
-  
+
   #nav-content ul {
     padding-right: 20px;
     padding-left: 20px;
