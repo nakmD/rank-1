@@ -9,8 +9,8 @@
 各ミュージシャンやバンドのファンクラブ専用サイトにて、投票ページを作って、ライブでの演奏曲を決めるのが面白そうだと思い制作しました。
 
 ## サンプル画像
-<img src="https://i.gyazo.com/f40bae7abb24a2d5fdacc90dde53b435.png" width="320px">
-<img src="https://i.gyazo.com/14c0268830d27c9c0b4f6cf9e017ee13.png" width="320px">
+<img src="https://i.gyazo.com/7df5b54df15ab0726eeef7baee9a646f.jpg" width="320px">
+<img src="https://i.gyazo.com/47765c5cfa15146acb6d09ffc55915c1.jpg" width="320px">
 <img src="https://i.gyazo.com/6f476e42ac2574797642e043a00f30d5.png" width="320px">
 
 ## 使用技術
