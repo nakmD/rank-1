@@ -10,18 +10,18 @@
             <label class="nav-unshown" id="nav-close" for="nav-input"></label>
             <div id="nav-content">
               <ul>
-                <li @click="">完全感覚Dreamer</li>
-                <li @click="">前前前世</li>
-                <li @click="">Pretender</li>
-                <li @click="">紅蓮華</li>
-                <li @click="">白日</li>
-                <li @click="">パプリカ</li>
-                <li class="so" @click="signOut">Sign Out</li>
+                <li @click="Kanzen">完全感覚Dreamer</li>
+                <li>前前前世</li>
+                <li>Pretender</li>
+                <li>紅蓮華</li>
+                <li>白日</li>
+                <li>パプリカ</li>
+                <li class="so" @click="signOut">ログアウト</li>
               </ul>
             </div> <!-- id="nav-content" -->
           </div> <!-- id="nav-drawer" -->
         </div> <!-- class="header-logo-menu" -->
-        <table class="table">
+        <table class="table"> <!-- 曲の一覧 -->
           <transition-group name="songs" tag="tbody">
               <tr scope="row" class="col-4"
                 v-for="song in sortedSongs"
@@ -43,7 +43,7 @@
               </tr>
           </transition-group>
         </table>
-      </div> <!-- class="graph tit" -->
+      </div>  <!-- class="graph tit" -->
       <!-- Chat section -->
       <div class="message-body mt-3">
         <div class="card">
@@ -53,16 +53,16 @@
               v-for="(message, index) in messages"
               :key="index"
             >
-              <span class="mg-text">{{ message.username }}</span>
+              <!-- <span class="mg-text">{{ message.username }}</span> -->
               <p class="message pt-1">{{ message.text }}</p>
             </div>
           </div>
         </div>
         <div class="dod">
           <input v-model="showMessage" type="text" placeholder="コメントしよう！" class="mt-3 mr-2 pl-2 pr-2" />
-          <button class="btn" @click="sendMessage">送信</button>
+          <button id="message-text" class="btn" @click="sendMessage">送信</button>
         </div>
-      </div> <!-- message-body -->
+      </div>  <!-- message-body -->
     </div>  <!-- class="g" -->
   </div>
 </template>
@@ -75,8 +75,8 @@ import Kanzen from './Kanzen.vue'
 export default {
   name: 'Graph',
   components: {
-    Kanzen,
-    Eps
+    Eps,
+    Kanzen
   },
   data () {
     return {
@@ -92,15 +92,10 @@ export default {
     this.fetchSongsFromFirebase()
   },
   methods: {
-    updateUsername () {
-      this.name = this.userName
-      console.log(this.userName)
-      this.userName = ''
-    },
     sendMessage () {
       const message = {
-        text: this.showMessage,
-        username: this.name
+        text: this.showMessage
+        // username: this.name
       }
       firebase
         .database()
@@ -141,11 +136,11 @@ export default {
         this.songs.push(song)
       })
       songRef.on('child_changed', (spollSnapshot) => { // 変更を監視
-        const song = spollSnapshot.val() // 変更された���ブジェクト
+        const song = spollSnapshot.val()
 
         song.key = spollSnapshot.key // 変更されたkey
 
-        console.log(song)
+        // console.log(song)
         const vm = this // javascriptはthisが文脈によって変わるので確実にvueオブジェクトを指すために代入しておく
 
         vm.songs.forEach((records, index) => { // vueのレンダリング実行のためには、indexが必要だったのでこの形でループ
@@ -288,8 +283,8 @@ export default {
   right: 0;
   z-index: 100;
   width: 30%;
-  max-width: 330px;/*最大幅*/
-  height: 35%;
+  max-width: 250px;/*最大幅（お好みで調整を）*/
+  height: 30%;
   background: #fff;
   transition: .3s ease-in-out;
   -webkit-transform: translateX(105%);
@@ -299,10 +294,10 @@ export default {
 
 #nav-content ul {
   margin: 0;
-  padding-right: 50px;
-  padding-left: 50px;
+  height: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
   padding-bottom: 5px;
-  border-bottom: 1px solid gray;
 }
 
 #nav-content ul li {
@@ -476,6 +471,12 @@ input {
   }
 }
 
+@media screen and (max-width: 800px) {
+  #nav-content {
+    width: 40%;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .btn {
     width: 11%;
@@ -518,7 +519,7 @@ input {
   #nav-content {
     z-index: 100;
     width: 50%;
-    height: 55%;
+    height: 26%;
   }
 
   #nav-content ul {
@@ -531,7 +532,7 @@ input {
   }
 
   .graph {
-    height: 308px;
+    height: 312px;
   }
 
   #nav-drawer {
@@ -544,12 +545,12 @@ input {
 
   .message-body {
     width: 100%;
-    height: 448px;
+    height: 500px;
     visibility: scroll;
   }
   .card {
     height: 280px;
-    margin-top: -143px;
+    margin-top: 72px;
     margin-bottom: 0;
   }
   .card-body {
@@ -576,6 +577,7 @@ input {
   .dod {
     display: inline-flex;
     height: 50px;
+    margin-top: 10px;
     padding: 10px 0 0 0;
   }
 }
