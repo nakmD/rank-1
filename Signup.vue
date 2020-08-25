@@ -111,7 +111,7 @@ export default {
 
 .pd {
   width: 80%;
-  border: solid 2px rgb(234,70,111);
+  border: solid 2px rgb(0, 0, 0);
   border-radius: 4px;
   margin: 15px 0;
   padding: 10px;
@@ -125,15 +125,15 @@ export default {
   text-decoration: none;
   border-radius: 3px;
   font-weight: bold;
-  color: #FFF;
-  background-image: linear-gradient(45deg, #B03232 0%, #b0c9ff 100%);
   transition: .4s;
   font-size: 1.3rem;
   margin-top: 10px;
+  background-color: rgb(223, 223, 223);
+  color: black;
 }
 
 .butt:hover {
-  background-image: linear-gradient(45deg, #B03232 50%, #b0c9ff 100%);
+  background-color: rgb(167, 167, 167);
 }
 
 .button--green {
@@ -146,14 +146,14 @@ export default {
   border-radius: 25px;
   text-decoration: none;
   color: #FFF;
-  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  background-color: rgb(70, 69, 69);
   transition: .4s;
   margin: 4% 0;
   width: 50%;
 }
 
 .gogle:hover {
-  background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+  background-color: rgb(138, 136, 136);
   cursor: pointer;
 }
 
@@ -176,7 +176,6 @@ export default {
     margin: 0px auto 60px auto;
     padding-left: 15px;
     padding-right: 15px;
-    clear: both;
   }
 
   .form {
@@ -191,62 +190,31 @@ export default {
   .pa {
     margin-top: 0;
     margin-bottom: 0;
-    color: rgb(255,255,255);
     font-size: 1.4rem;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px #808080;
   }
 
   .pc {
     margin: 0;
-    color: rgb(255,255,255);
     font-size: 1.2rem;
-    font-weight: bold;
-    text-shadow: 1px 2px 3px #808080;
   }
 
   .pd {
     margin: 5px auto;
     padding: 7px;
     width: 50%;
-    border: solid 1.5px rgb(234,70,111);
-    border-radius: 4px;
   }
 
   .butt {
-    display: block;
     padding: 0.5em 1em;
     text-decoration: none;
-    border-radius: 3px;
-    font-weight: bold;
-    color: #FFF;
-    background-image: linear-gradient(45deg, #B03232 0%, #b0c9ff 100%);
-    transition: .4s;
     font-size: .8rem;
     margin-bottom: 5px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .butt:hover {
-    background-image: linear-gradient(45deg, #B03232 50%, #b0c9ff 100%);
   }
 
   .gogle {
     display: block;
     padding: 5px 18px;
-    border-radius: 25px;
-    text-decoration: none;
-    color: #FFF;
-    background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
-    transition: .4s;
     margin: 0 auto;
-    width: 50%;
-  }
-
-  .gogle:hover {
-    background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
-    cursor: pointer;
   }
 
   .button--green {
@@ -256,101 +224,53 @@ export default {
   .pe {
     margin: 0;
     font-size: .8rem;
-    font-weight: bold;
-    color: white;
   }
 
   .moji-login {
     font-size: .8rem;
   }
-
 }
 
 @media screen and (max-width: 480px) {
   .container {
-    height: 100vh;
-    margin: 0;
     padding-left: 15px;
     padding-right: 15px;
-    clear: both;
-  }
-
-  .form {
-    height: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .form-body {
-    padding: 30px;
   }
 
   .pa {
     margin: 60px auto 10px auto;
     color: rgb(255,255,255);
     font-size: 2.4rem;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px #808080;
   }
 
   .pb {
     margin: 0 auto;
-    color: rgb(255,255,255);
     font-size: 2.4rem;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px #808080;
   }
 
   .pc {
     margin-top: 150px;
     margin-bottom: 5px;
-    color: rgb(255,255,255);
     font-size: 2.4rem;
-    font-weight: bold;
-    text-shadow: 1px 2px 3px #808080;
   }
 
   .pd {
     width: 70%;
-    border: solid 1.5px rgb(234,70,111);
-    border-radius: 4px;
     margin: 12px 0;
-    padding: 10px;
   }
 
   .butt {
     display: block;
     padding: 0.5em 1em;
-    text-decoration: none;
-    border-radius: 3px;
-    font-weight: bold;
-    color: #FFF;
-    background-image: linear-gradient(45deg, #B03232 0%, #b0c9ff 100%);
-    transition: .4s;
-    font-size: 1.3rem;
     margin-top: 8px;
     margin-bottom: 8px;
-  }
-
-  .butt:hover {
-    background-image: linear-gradient(45deg, #B03232 50%, #b0c9ff 100%);
   }
 
   .gogle {
     display: inline-block;
     padding: 5px 18px;
-    border-radius: 25px;
-    text-decoration: none;
-    color: #FFF;
-    background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
-    transition: .4s;
     margin: 5% 0;
     width: 60%;
-  }
-
-  .gogle:hover {
-    background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
-    cursor: pointer;
   }
 
   .button--green {
@@ -359,13 +279,10 @@ export default {
 
   .pe {
     font-size: 1.4rem;
-    font-weight: bold;
-    color: white;
   }
 
   .moji-login {
     font-size: 1.2rem;
   }
-
 }
 </style>
